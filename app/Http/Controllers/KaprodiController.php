@@ -31,7 +31,6 @@ class KaprodiController extends Controller
 
     public function storeDosen(Request $request)
     {
-
         Dosen::create([
             'id_user' => $request->input('id_user'),
             'kode_dosen' => $request->input('kode_dosen'),
@@ -117,11 +116,6 @@ class KaprodiController extends Controller
         return redirect()->route('layouts.kelas')->with('success', 'Kelas berhasil ditambahkan.');
     }
 
-    // public function editKelas($id)
-    // {
-    //     $kelas = Kelas::findOrFail($id);
-    //     return view('kaprodikelasedit', compact('kelas'));
-    // }
 
     public function updateKelas(Request $request, $id)
     {
@@ -208,32 +202,6 @@ class KaprodiController extends Controller
     }
 
     
-
-
-
-
-
-
-
-
-
-    // public function plotDosen()
-    // {
-    //     $kelas = kelas::all();
-    //     $dosen = Dosen::whereNull('kelas_id')->get();
-    //     return view('kaprodiplotdosen', compact('dosen', 'kelas'));
-    // }
-
-
-   
-
-    // public function plotMahasiswa()
-    // {
-    //     $kelas = kelas::all();
-    //     $mahasiswa = Mahasiswa::whereNull('kelas_id')->get();;
-    //     return view('kaprodiplotmahasiswa', compact('kelas', 'mahasiswa'));
-    // }
-    // // Di KaprodiController.php
 
     public function updateKelasMahasiswa(Request $request)
     {
