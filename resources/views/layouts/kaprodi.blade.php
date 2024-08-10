@@ -8,7 +8,7 @@
 
     <x-tambah-kaprodi />
     <x-edit-kaprodi />
-    <x-delete />
+   
     <x-search />
 
 </head>

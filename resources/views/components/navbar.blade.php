@@ -76,7 +76,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="{{ route('route.navbar') }}" class=""></a>
+                  
                     </div>
                 </div>
             </nav>

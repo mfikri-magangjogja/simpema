@@ -88,5 +88,5 @@
                         </li>
             </div>
         </aside>
-        <a href="{{ route('route.sidebar') }}" class=""></a>
+        <a href="" class=""></a>
     </div>

@@ -32,33 +32,36 @@ Route::get('/kaprodi', function () {
 
 // Rute untuk halaman Dosen
 Route::get('/dosen', [KaprodiController::class, 'indexDosen'])->name('layouts.dosen');
-
 Route::post('/store-dosen', [KaprodiController::class, 'storeDosen'])->name('storedosen');
 Route::put('update-dosen/{d_id}', [KaprodiController::class, 'updateDosen'])->name('updatedosen');
 Route::delete('delete-dosen/{d_id}', [KaprodiController::class, 'destroyDosen'])->name('destroydosen');
+Route::get('/dosen-cari', [KaprodiController::class, 'cariNamaDosen'])->name('caridosen');
+
+
+Route::get('/kelas', [KaprodiController::class, 'indexKelas'])->name('layouts.kelas');
+Route::post('/store-kelas', [KaprodiController::class, 'storeKelas'])->name('storekelas');
+Route::put('update-kelas/{id}', [KaprodiController::class, 'updateKelas'])->name('updatekelas');
+Route::delete('delete-kelas/{id}', [KaprodiController::class, 'destroyKelas'])->name('destroykelas');
+Route::get('/kelas-cari', [KaprodiController::class, 'cariNamaKelas'])->name('carikelas');
 
 
 
-Route::prefix('kaprodi/dosen')->name('kaprodi.dosen.')->middleware('auth')->group(function () {
-    // Route::get('/', [KaprodiController::class, 'indexDosen'])->name('index');
-    // Route::get('/create', [KaprodiController::class, 'createDosen'])->name('create');
-    // Route::post('/store', [KaprodiController::class, 'storeDosen'])->name('store');
-    // Route::get('/{dosen_id}/edit', [KaprodiController::class, 'editDosen'])->name('edit');
-    // Route::put('/{dosen_id}', [KaprodiController::class, 'updateDosen'])->name('update');
-    // Route::delete('/{dosen_id}', [KaprodiController::class, 'destroyDosen'])->name('destroy');
-});
 
 
 
-// Rute untuk halaman Kelas
-Route::get('/kelas', function () {
-    return view('/layouts.kelas');
-})->name('layouts.kelas');
+// Rute untuk halaman plotting
+Route::get('/plotting', [KaprodiController::class, 'indexPlot'])->name('layouts.plotting');
+Route::get('/plotting-dosen', [KaprodiController::class, 'plotDosen'])->name('plottingdosen');
+Route::post('/plotting-updatedosen', [KaprodiController::class, 'updateKelasDosen'])->name('plottingupdatedosen');
+Route::delete('/plotting-destroydosen/{id}', [KaprodiController::class, 'destroyKelasDosen'])->name('plottingdestroydosen');
+Route::post('/plotting-updatemahasiswa', [KaprodiController::class, 'updateKelasMahasiswa'])->name('plottingupdatemahasiswa');
+Route::delete('/plotting-destroymahasiswa/{id}', [KaprodiController::class, 'destroyKelasMahasiswa'])->name('plottingdestroymahasiswa');
 
-// Rute untuk halaman Plotting
-Route::get('/plotting', function () {
-    return view('/layouts.plotting');
-})->name('layouts.plotting');
+
+
+
+
+
 
 // Rute untuk halaman Login
 Route::get('/logout', function () {
@@ -82,41 +85,3 @@ Route::get('/dashboard', function () {
 
 
 
-
-
-// Contoh rute component tambah
-Route::get('/tambah-dosen', [DosenController::class, 'create'])->name('route.tambahDosen');
-Route::get('/tambah-dosenwali', [PlottingController::class, 'create'])->name('route.tambahDosenwali');
-Route::get('/tambah-mahasiswa', [PlottingController::class, 'create'])->name('route.tambahMahasiswa');
-Route::get('/tambah-kelas', [PlottingController::class, 'create'])->name('route.tambahKelas');
-Route::get('/tambah-kelas', [KelasController::class, 'create'])->name('route.tambahKelas');
-Route::get('/tambah-kaprodi', [KaprodiController::class, 'create'])->name('route.tambahKaprodi');
-Route::get('/tambah-mahasiswa', [MahasiswaController::class, 'create'])->name('route.tambahMahasiswa');
-
-// Contoh rute component edit
-Route::get('/edit-dosen', [DosenController::class, 'edit'])->name('route.editDosen');
-Route::get('/edit-kelas', [KelasController::class, 'edit'])->name('route.editKelas');
-Route::get('/edit-kaprodi', [KaprodiController::class, 'edit'])->name('route.editKaprodi');
-
-// Contoh rute component delete
-Route::get('/delete', [DosenController::class, 'delete'])->name('route.delete');
-Route::get('/delete', [KelasController::class, 'delete'])->name('route.delete');
-Route::get('/delete', [KaprodiController::class, 'delete'])->name('route.delete');
-
-// Contoh rute component keluarkan
-Route::get('/keluarkan', [PlottingController::class, 'keluarkan'])->name('route.keluarkan');
-
-// Contoh rute component search
-Route::get('/search', [DosenController::class, 'search'])->name('route.search');
-Route::get('/search', [KelasController::class, 'search'])->name('route.search');
-Route::get('/search', [KaprodiController::class, 'search'])->name('route.search');
-
-// Contoh rute component sidebar
-Route::get('/sidebar', [DosenController::class, 'sidebar'])->name('route.sidebar');
-Route::get('/sidebar', [KelasController::class, 'sidebar'])->name('route.sidebar');
-Route::get('/sidebar', [KaprodiController::class, 'sidebar'])->name('route.sidebar');
-
-// Contoh rute component navbar
-Route::get('/navbar', [DosenController::class, 'navbar'])->name('route.navbar');
-Route::get('/navbar', [KelasController::class, 'navbar'])->name('route.navbar');
-Route::get('/navbar', [KaprodiController::class, 'navbar'])->name('route.navbar');
